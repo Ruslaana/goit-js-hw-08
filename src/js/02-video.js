@@ -13,7 +13,7 @@ if (savedTime) {
 // Використання throttle
 const saveTimeToLocalStorage = throttle(function (time) {
   localStorage.setItem('videoplayer-current-time', time);
-}, 1000); // Затримка в 1000 мс (1 секунда)
+}, 1000);
 
 // Відстеження події timeupdate
 player.on('timeupdate', function (event) {
