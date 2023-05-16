@@ -1,8 +1,8 @@
-import Vimeo from '@vimeo/player';
+import Player from '@vimeo/player';
 import throttle from 'lodash.throttle';
 
 const iframe = document.querySelector('iframe');
-const player = new Vimeo.Player(iframe);
+const player = new Player(iframe);
 
 // Отримання збереженого часу відтворення після перезавантаження сторінки
 const savedTime = localStorage.getItem('videoplayer-current-time');
