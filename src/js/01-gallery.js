@@ -4,7 +4,7 @@ import { galleryItems } from './gallery-items.js';
 
 const galleryList = document.querySelector('.gallery');
 
-function createGalleryItem(galleryItems) {
+export function createGalleryItem(galleryItems) {
   return galleryItems
     .map(({ preview, original, description }) => {
       return `
@@ -25,6 +25,12 @@ const galeryMarkup = createGalleryItem(galleryItems);
 galleryList.insertAdjacentHTML('beforeend', galeryMarkup);
 
 galleryList.addEventListener('click', onGaleryImageClick);
+
+const gallery = new SimpleLightbox(' gallery__item > gallery link', {
+  captions: true,
+  captionsData: 'alt',
+  fadeSpeed: 250,
+});
 
 let instance;
 
