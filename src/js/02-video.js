@@ -4,18 +4,18 @@ import throttle from 'lodash.throttle';
 const iframe = document.querySelector('iframe');
 const player = new Player(iframe);
 
-// Отримання збереженого часу відтворення після перезавантаження сторінки
+// Retrieving saved playback time after page reload
 const savedTime = localStorage.getItem('videoplayer-current-time');
 if (savedTime) {
   player.setCurrentTime(parseFloat(savedTime));
 }
 
-// Використання throttle
+// using throttle
 const saveTimeToLocalStorage = throttle(function (time) {
   localStorage.setItem('videoplayer-current-time', time);
 }, 1000);
 
-// Відстеження події timeupdate
+// Event tracking timeupdate
 player.on('timeupdate', function (event) {
   const currentTime = event.seconds;
   saveTimeToLocalStorage(currentTime);
