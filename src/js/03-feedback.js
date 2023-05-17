@@ -28,6 +28,12 @@ form.addEventListener('input', saveStateToLocalStorage);
 form.addEventListener('submit', function (event) {
   event.preventDefault();
 
+  // Validation - empty text
+  if (!emailInput.value || !messageInput.value) {
+    alert('Enter text, please');
+    return;
+  }
+
   const state = {
     email: emailInput.value,
     message: messageInput.value,
@@ -37,8 +43,7 @@ form.addEventListener('submit', function (event) {
   localStorage.removeItem(storageKey);
 
   // Очищення полів форми
-  emailInput.value = '';
-  messageInput.value = '';
+  form.reset();
 
-  console.log('Form state:', state);
+  //console.log('Form state:', state);
 });
