@@ -45,5 +45,5 @@ form.addEventListener('submit', function (event) {
   // Cleaning form fields
   form.reset();
 
-  //console.log('Form state:', state);
+  console.log('Form state:', state);
 });
